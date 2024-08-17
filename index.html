@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stable Diffusion Image Generator</title>
+</head>
+<body>
+    <h1>Stable Diffusion Image Generator</h1>
+    <div id="root"></div>
+    <script src="./dist/bundle.js"></script>
+    <script>
+        console.log('HTML file loaded');
+        if (typeof require !== 'undefined') {
+            console.log('Electron environment detected');
+        } else {
+            console.log('Browser environment detected');
+        }
+    </script>
+</body>
+</html>
