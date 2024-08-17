@@ -12,6 +12,10 @@ import json
 from huggingface_hub import login
 import os
 import traceback
+from dotenv import load_dotenv
+
+#load the env file
+load_dotenv()
 
 # Set up logging
 import logging
@@ -23,7 +27,7 @@ OPERATING_SYSTEM = platform.system()
 logger.info(f"Detected operating system: {OPERATING_SYSTEM}")
 
 try:
-    login(token="")
+    login(token=os.getenv("HF_TOKEN"))
 except Exception as e:
     logger.error(f"Failed to login to Hugging Face: {str(e)}")
     raise
