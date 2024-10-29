@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generation</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <main>
+        <h1>Image Generation</h1>
+        
+        <div class="control-group">
+            <label for="prompt">Prompt:</label>
+            <textarea id="prompt" rows="3"></textarea>
+        </div>
+
+        <div class="control-group">
+            <label>Aspect Ratio:</label>
+            <div class="radio-group">
+                <input type="radio" id="ratio16_9" name="aspect" value="16:9" checked>
+                <label for="ratio16_9">16:9</label>
+                
+                <input type="radio" id="ratio4_3" name="aspect" value="4:3">
+                <label for="ratio4_3">4:3</label>
+                
+                <input type="radio" id="ratio1_1" name="aspect" value="1:1">
+                <label for="ratio1_1">1:1</label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Model Type:</label>
+            <div class="radio-group">
+                <input type="radio" id="modelFast" name="model" value="fast">
+                <label for="modelFast">Fast</label>
+                
+                <input type="radio" id="modelSlow" name="model" value="slow" checked>
+                <label for="modelSlow">Slow</label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>LoRA Options:</label>
+            <div class="lora-options">
+                <div id="fast_loras" class="lora-group">
+                    <h4>Fast Model LoRAs:</h4>
+                    <div class="checkbox-group" id="fastLoraCheckboxes"></div>
+                </div>
+                
+                <div id="slow_loras" class="lora-group active">
+                    <h4>Slow Model LoRAs:</h4>
+                    <div class="checkbox-group" id="slowLoraCheckboxes"></div>
+                </div>
+            </div>
+        </div>
+
+        <button id="generateBtn">Generate Image</button>
+
+        <div id="progressContainer" class="progress-container hidden">
+            <div class="progress-status">
+                <span class="progress-label">Generating image...</span>
+                <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <h2>Generated Images Gallery</h2>
+            <div id="imageGrid" class="image-grid"></div>
+        </div>
+
+        <div id="imageModal" class="modal">
+            <span class="close-modal">&times;</span>
+            <div class="modal-content">
+                <img id="modalImage" alt="Full size image">
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
